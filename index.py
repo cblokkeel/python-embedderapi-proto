@@ -38,6 +38,10 @@ def run_qa_chain(template: str, question: str):
     
     return result["result"]
 
+@app.route('/health', methods=['GET'])
+def health_check():
+    return "pong"
+
 @app.route('/api/v1/search', methods=['POST'])
 def get_qa_result():
     api_key = request.headers.get('Authorization')

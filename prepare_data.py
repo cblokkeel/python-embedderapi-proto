@@ -6,10 +6,11 @@ import sys
 
 sys.path.append('../..')
 
-from dotenv import load_dotenv, find_dotenv
-_ = load_dotenv(find_dotenv()) # read local .env file
+# from dotenv import load_dotenv, find_dotenv
+# _ = load_dotenv(find_dotenv()) # read local .env file
 
-openai.api_key  = os.environ['OPENAI_API_KEY']
+# openai.api_key  = os.environ['OPENAI_API_KEY']
+openai.api_key = "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"
 
 # PREPARATION LOAD & Embedding + STORAGE DB
 from langchain.text_splitter import RecursiveCharacterTextSplitter, CharacterTextSplitter

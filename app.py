@@ -6,10 +6,6 @@ from langchain.prompts import PromptTemplate
 from langchain.chains import RetrievalQA
 import os
 import openai
-from dotenv import load_dotenv, find_dotenv
-
-if os.environ.get("ENV_MODE") == "local":
-    _ = load_dotenv(find_dotenv())
 
 app = Flask(__name__)
 openai.api_key  = os.environ['OPENAI_API_KEY']

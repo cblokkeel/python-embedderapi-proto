@@ -9,8 +9,7 @@ sys.path.append('../..')
 # from dotenv import load_dotenv, find_dotenv
 # _ = load_dotenv(find_dotenv()) # read local .env file
 
-# openai.api_key  = os.environ['OPENAI_API_KEY']
-openai.api_key = "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"
+openai.api_key  = os.environ['OPENAI_API_KEY']
 
 # PREPARATION LOAD & Embedding + STORAGE DB
 from langchain.text_splitter import RecursiveCharacterTextSplitter, CharacterTextSplitter
@@ -37,7 +36,6 @@ markdown_splitter = MarkdownHeaderTextSplitter(
     headers_to_split_on=headers_to_split_on
 )
 md_header_splits = markdown_splitter.split_text(txt)
-print(md_header_splits)
 
 # Split
 from langchain.text_splitter import RecursiveCharacterTextSplitter

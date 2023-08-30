@@ -4,10 +4,13 @@ from langchain.vectorstores import Chroma
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.prompts import PromptTemplate
 from langchain.chains import RetrievalQA
+from flask_cors import CORS, cross_origin
 import os
 import openai
 
 app = Flask(__name__)
+CORS(app)
+
 openai.api_key  = os.environ['OPENAI_API_KEY']
 
 # Initialize ChatOpenAI model
@@ -39,6 +42,7 @@ def health_check():
     return "pong"
 
 @app.route('/api/v1/search', methods=['POST'])
+@cross_origin(origin='*')
 def get_qa_result():
     api_key = request.headers.get('Authorization')
     if api_key != os.environ["DESIRED_API_KEY"]:
